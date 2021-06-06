@@ -1,0 +1,8 @@
+---
+- hosts: all
+  gather_facts: false
+  become: true
+  tasks:
+  - name: gather facts
+    debug:
+      msg: "Enter the hostname: {{ inventory_hostname }}"
