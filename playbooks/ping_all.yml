@@ -1,0 +1,14 @@
+---
+- name: Ping all systems.
+  hosts: all
+  become: true
+  gather_facts: false
+  tasks:
+  - name: Installing Httpd
+    yum: name=httpd state=installed
+    copy:
+      src: /etc/httpd.conf
+      dest: /etc/httpd/conf/httpd.conf
+    service: 
+      name: httpd
+      state: started
